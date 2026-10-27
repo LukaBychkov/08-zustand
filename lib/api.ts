@@ -32,6 +32,8 @@ export const fetchNotes = async (fetchParams: fetchParams): Promise<NotesHttpRes
   return response.data;
 };
 
+export type CreateNoteParams = Pick<Note, 'title' | 'content' | 'tag'>;
+
 export const createNote = async (note: Pick<Note, 'title' | 'content' | 'tag'>): Promise<Note> => {
   const response = await axiosInstance.post<Note>('/notes', note);
   return response.data;
